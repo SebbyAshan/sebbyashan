@@ -1,6 +1,6 @@
 [build]
   command = "npm run build"
-  publish = "dist/sebbyashan/browser"
+  publish = "dist/sebbyashan"
 
 [build.environment]
   NODE_VERSION = "18"
