@@ -1,30 +1,24 @@
 [build]
-  # Build command for Angular
   command = "npm run build"
-  # Publish directory (where Angular outputs the built files)
   publish = "dist/sebbyashan"
 
 [build.environment]
-  # Node.js version for build
   NODE_VERSION = "18"
 
-# Redirect rules for Angular SPA routing
+# Simple fallback for SPA (even though you don't use routing)
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# Security headers for better performance and security
+# Security headers
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self' data:;"
 
-# Cache static assets for better performance
+# Cache static assets
 [[headers]]
   for = "/assets/*"
   [headers.values]
