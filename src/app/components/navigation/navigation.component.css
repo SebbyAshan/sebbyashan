@@ -1,0 +1,364 @@
+/* Main navigation styles with floating design and rounded edges */
+.navbar {
+  background: #a48770; /* Changed from blue gradient to requested color */
+  border: 3px solid #1c1511; /* Added outline with requested color */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  /* Remove fixed width - let content determine size */
+  width: auto;
+  min-width: fit-content;
+  max-width: calc(100vw - 40px); /* Prevent overflow on small screens */
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  font-family: "Golden Story", serif; /* Apply Golden Story font to entire navbar */
+  font-weight: bold; /* Make text bold as requested */
+}
+
+/* Navigation container with content-based spacing */
+.navbar-container {
+  /* Remove max-width constraint to allow content-based sizing */
+  width: auto;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center the navigation menu */
+  /* Dynamic padding based on content */
+  padding: 10px clamp(16px, 2vw, 32px);
+  min-height: 70px;
+  height: auto;
+  /* Add gap for better content spacing */
+  gap: clamp(20px, 3vw, 40px);
+}
+
+/* Desktop navigation menu - content-driven width */
+.desktop-menu {
+  /* Remove flex: 1 to prevent stretching */
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  /* Responsive gap based on content */
+  gap: clamp(20px, 4vw, 40px);
+  /* Ensure proper alignment */
+  align-items: center;
+}
+
+.nav-item {
+  position: relative;
+  /* Ensure items don't shrink */
+  flex-shrink: 0;
+}
+
+/* Navigation link styles with content-based spacing */
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: clamp(24px, 3vw, 32px); /* Responsive font size */
+  font-weight: bold;
+  font-family: "Golden Story", serif;
+  /* Content-based padding */
+  padding: 8px clamp(16px, 2vw, 30px);
+  margin: 10px 0;
+  border-radius: 8px;
+  transition: all 0.5s ease;
+  position: relative;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  /* Ensure text doesn't wrap */
+  white-space: nowrap;
+}
+
+.nav-link:hover {
+  /* background-color: rgba(255, 255, 255, 0.15); */
+  transform: translateY(-1px);
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
+  color: rgb(192, 255, 141);
+}
+
+/* .nav-link:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+} */
+
+/* Search and actions section */
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Search functionality styling - Fixed width container */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 250px; /* Fixed width to prevent layout shifts */
+  justify-content: flex-end; /* Align search input to the right */
+}
+
+.search-input {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 8px 40px 8px 16px;
+  color: white;
+  font-size: 14px;
+  width: 200px; /* Default width */
+  transition: all 0.3s ease;
+  position: absolute;
+  right: 0; /* Anchor to the right side */
+}
+
+.search-input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  width: 250px; /* Expanded width - matches container width */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-button {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+  z-index: 10; /* Ensure button stays above input */
+}
+
+.search-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.search-icon {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2;
+}
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  gap: 4px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  right: 24px; /* Position on the right side */
+}
+
+.mobile-menu-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.hamburger-line {
+  width: 24px;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease;
+  border-radius: 1px;
+}
+
+/* Mobile menu styles - update background color to match */
+.mobile-menu {
+  display: none;
+  background: #a48770; /* Changed from blue gradient to match navbar */
+  border: 2px solid #1c1511; /* Added outline to match navbar */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 24px;
+  border-radius: 0 0 16px 16px;
+  margin-top: 60px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.mobile-menu.active {
+  display: block;
+}
+
+.mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-nav-item {
+  margin-bottom: 10px;
+}
+
+/* Mobile navigation link styles */
+.mobile-nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold; /* Ensure bold weight */
+  font-family: "Golden Story", serif; /* Apply Golden Story font */
+  display: block;
+  padding: 12px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Add subtle text shadow for better readability */
+}
+
+.mobile-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+}
+
+/* Body padding to account for floating navbar */
+body {
+  padding-top: 100px;
+}
+
+/* Responsive design for tablets and mobile devices */
+@media (max-width: 768px) {
+  .navbar {
+    width: calc(100% - 20px);
+    top: 10px;
+    border-radius: 12px;
+  }
+  
+  .navbar-container {
+    padding: 0 20px;
+    justify-content: center; /* Keep centered layout */
+  }
+  
+  .desktop-menu {
+    display: none;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+    right: 20px;
+  }
+  
+  .mobile-menu {
+    border-radius: 0 0 12px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    width: calc(100% - 16px);
+    top: 8px;
+    border-radius: 10px;
+  }
+  
+  .navbar-container {
+    padding: 0 16px;
+  }
+  
+  .mobile-menu-toggle {
+    right: 16px;
+  }
+  
+  .mobile-menu {
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .nav-link,
+  .mobile-nav-link,
+  .search-input,
+  .mobile-menu-toggle {
+    transition: none !important;
+  }
+  
+  .navbar:hover {
+    transform: translateX(-50%);
+  }
+}
+
+/* Focus styles for better accessibility */
+.nav-link:focus,
+.mobile-nav-link:focus,
+.brand-link:focus,
+.search-button:focus,
+.mobile-menu-toggle:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}
+
+/* Smooth scroll behavior for better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove all previous active state styles and keep only text color change */
+
+/* Active navigation link styles - TEXT COLOR ONLY */
+.nav-link.active {
+  color: rgb(192, 255, 141) !important;
+}
+
+/* Mobile active navigation link styles - TEXT COLOR ONLY */
+.mobile-nav-link.active {
+  color: rgb(192, 255, 141) !important;
+}
+
+/* Keep existing hover effects unchanged */
+.nav-link:hover {
+  transform: translateY(-1px);
+  color: rgb(192, 255, 141);
+}
+
+.mobile-nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+}
+
+/* Remove any additional active state styling that was added */
+.nav-link.active::before {
+  display: none;
+}
+
+/* Ensure smooth transitions remain */
+.nav-link,
+.mobile-nav-link {
+  transition: all 0.5s ease;
+}
+/* Enhanced hover effects for non-active items */
+.nav-link:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+  color: rgb(192, 255, 141);
+}
+
+.mobile-nav-link:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+  color: rgb(192, 255, 141);
+}
+
+/* Smooth transitions for active state changes */
+.nav-link,
+.mobile-nav-link {
+  transition: all 0.3s ease, background-color 0.2s ease, border 0.2s ease;
+}

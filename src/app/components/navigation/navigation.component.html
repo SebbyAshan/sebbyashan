@@ -1,0 +1,55 @@
+<!-- Main navigation container with responsive design -->
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-container">
+    
+    <!-- Desktop navigation menu -->
+    <div class="navbar-menu desktop-menu">
+      <ul class="nav-list" role="menubar">
+        <li class="nav-item" *ngFor="let item of navigationItems" role="none">
+          <a 
+            [href]="item.path" 
+            class="nav-link"
+            [class.active]="isItemActive(item)"
+            role="menuitem"
+            (click)="onNavigationClick(item, $event)"
+            [attr.aria-label]="item.label + ' page'"
+            [attr.aria-current]="isItemActive(item) ? 'page' : null"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Mobile menu toggle button -->
+    <button 
+      class="mobile-menu-toggle"
+      type="button"
+      aria-label="Toggle mobile menu"
+      [attr.aria-expanded]="isMobileMenuOpen"
+      (click)="toggleMobileMenu()"
+    >
+      <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+      <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+      <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+    </button>
+  </div>
+
+  <!-- Mobile navigation menu -->
+  <div class="mobile-menu" [class.active]="isMobileMenuOpen">
+    <ul class="mobile-nav-list" role="menubar">
+      <li class="mobile-nav-item" *ngFor="let item of navigationItems" role="none">
+        <a 
+          [href]="item.path" 
+          class="mobile-nav-link"
+          [class.active]="isItemActive(item)"
+          (click)="onNavigationClick(item, $event)"
+          [attr.aria-label]="item.label + ' page'"
+          [attr.aria-current]="isItemActive(item) ? 'page' : null"
+        >
+          {{ item.label }}
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

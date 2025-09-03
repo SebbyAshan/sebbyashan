@@ -1,0 +1,220 @@
+<!-- Hero Section with Background Image and Particles -->
+<div 
+  class="hero-section" 
+  id="hero-section"
+  *ngIf="isHeroVisible"
+  [ngStyle]="getHeroStyle()"
+  role="banner"
+  aria-label="Hero section with background image and particle effects"
+>
+  <div class="hero-content">
+    <img 
+      src="/Image/BGFB-1.png" 
+      alt="Hero background image" 
+      class="hero-image"
+      loading="eager"
+    >
+    
+    <!-- Header Particles Component -->
+    <app-header-particles class="particles-overlay"></app-header-particles>
+    
+    <div class="hero-overlay" id="hero-overlay">
+      <div class="hero-text">
+        <h1 class="hero-title">Welcome to SebbyAshan's Page</h1>
+        <p class="hero-subtitle">Behold! my Cozy Swamp!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation component - stays fixed -->
+<app-navigation></app-navigation>
+
+<!-- Main application container -->
+<div class="app-container">
+  <!-- Gallery Section -->
+  <section class="gallery-section" id="gallery-section" role="region" aria-label="Image Gallery">
+    <div class="gallery-header">
+      <h2 class="gallery-title">Gallery</h2>
+    </div>
+    
+    <div class="gallery-grid">
+      <div class="gallery-item" *ngFor="let image of galleryImages; let i = index">
+        <div class="image-container">
+          <img 
+            [src]="image.src" 
+            [alt]="image.alt" 
+            class="gallery-image"
+            loading="lazy"
+            (click)="openImageModal(image, i)"
+            [attr.aria-label]="'View ' + image.title + ' in full size'"
+          >
+          <div class="image-overlay">
+            <div class="overlay-content">
+              <h3 class="image-title">{{ image.title }}</h3>
+              <p class="image-description">{{ image.description }}</p>
+              <button 
+                class="view-btn" 
+                (click)="openImageModal(image, i)"
+                aria-label="View image in full size"
+              >
+                <span class="btn-text">View Full Size</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section" id="services-section" role="region" aria-label="Services">
+    <div class="services-header">
+      <h2 class="services-title">Services</h2>
+    </div>
+  
+    <div class="services-container">
+      <!-- Service Navigation Dots -->
+
+  
+      <!-- Services Sliding Panel -->
+      <div class="services-slider">
+        <div class="services-track" [style.transform]="'translateX(-' + (currentServiceIndex * 100) + '%)'">
+          <div *ngFor="let service of services; let i = index" class="service-panel">
+            <div class="service-content">
+              <div class="service-image-container">
+                <img 
+                  [src]="service.image" 
+                  [alt]="service.alt"
+                  class="service-image"
+                  loading="lazy">
+              </div>
+              <div class="service-info">
+                <h3 class="service-title">{{ service.title }}</h3>
+                <p class="service-description">{{ service.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+            <div class="services-nav-dots">
+        <button 
+          *ngFor="let service of services; let i = index" 
+          class="nav-dot" 
+          [class.active]="i === currentServiceIndex"
+          (click)="goToService(i)"
+          [attr.aria-label]="'Go to ' + service.title">
+        </button>
+      </div>
+  
+      <!-- Navigation Arrows -->
+      <button class="services-nav-btn prev" (click)="previousService()" aria-label="Previous service">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="15,18 9,12 15,6"></polyline>
+        </svg>
+      </button>
+      <button class="services-nav-btn next" (click)="nextService()" aria-label="Next service">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9,18 15,12 9,6"></polyline>
+        </svg>
+      </button>
+  
+      <!-- Auto-play Toggle -->
+      <button class="autoplay-toggle" (click)="toggleServicesAutoPlay()" [attr.aria-label]="isServicesAutoPlay ? 'Pause auto-play' : 'Start auto-play'">
+        <svg *ngIf="isServicesAutoPlay" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="6" y="4" width="4" height="16"></rect>
+          <rect x="14" y="4" width="4" height="16"></rect>
+        </svg>
+        <svg *ngIf="!isServicesAutoPlay" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="5,3 19,12 5,21"></polygon>
+        </svg>
+      </button>
+    </div>
+  </section>
+  
+  <!-- About Me Section -->
+  <section class="about-me-section" id="about-me-section" role="region" aria-label="About Me">
+    <div class="about-me-header">
+      <h2 class="about-me-title">About Me</h2>
+    </div>
+    <div class="about-me-content">
+      <div class="about-me-text">
+        <p class="about-me-description">
+          Sebby Ashan is a talented, cool, hard-working, and humble freelance illustrator. 
+          He also enjoys programming and creating digital art for backgrounds and illustrations.
+        </p>
+      </div>
+    </div>
+  </section>
+
+<router-outlet></router-outlet>
+
+
+<!-- Image Modal -->
+<div 
+  class="image-modal" 
+  *ngIf="isModalOpen"
+  (click)="closeImageModal()"
+  (keydown)="onModalKeydown($event)"
+  tabindex="0"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-label]="'Full size view of ' + selectedImage?.title"
+>
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <!-- Close button -->
+    <button 
+      class="modal-close" 
+      (click)="closeImageModal()"
+      aria-label="Close modal"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <!-- Navigation buttons -->
+    <button 
+      class="modal-nav modal-prev" 
+      (click)="previousImage()"
+      *ngIf="selectedImageIndex > 0"
+      aria-label="Previous image"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <polyline points="15,18 9,12 15,6"></polyline>
+      </svg>
+    </button>
+
+    <button 
+      class="modal-nav modal-next" 
+      (click)="nextImage()"
+      *ngIf="selectedImageIndex < galleryImages.length - 1"
+      aria-label="Next image"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <polyline points="9,6 15,12 9,18"></polyline>
+      </svg>
+    </button>
+
+    <!-- Image container -->
+    <div class="modal-image-container">
+      <img 
+        [src]="selectedImage?.src" 
+        [alt]="selectedImage?.alt"
+        class="modal-image"
+        loading="eager"
+      >
+    </div>
+
+    <!-- Image info -->
+    <div class="modal-info">
+      <h3 class="modal-title">{{ selectedImage?.title }}</h3>
+      <p class="modal-description">{{ selectedImage?.description }}</p>
+      <div class="modal-counter">
+        {{ selectedImageIndex + 1 }} of {{ galleryImages.length }}
+      </div>
+    </div>
+  </div>
+</div>

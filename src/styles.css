@@ -1,0 +1,59 @@
+/* Golden Story Font Import */
+@font-face {
+  font-family: "Golden Story";
+  src: url("https://db.onlinewebfonts.com/t/cddf28bbb1915a424584b33b711babee.eot");
+  src: url("https://db.onlinewebfonts.com/t/cddf28bbb1915a424584b33b711babee.eot?#iefix") format("embedded-opentype"),
+       url("https://db.onlinewebfonts.com/t/cddf28bbb1915a424584b33b711babee.woff2") format("woff2"),
+       url("https://db.onlinewebfonts.com/t/cddf28bbb1915a424584b33b711babee.woff") format("woff"),
+       url("https://db.onlinewebfonts.com/t/cddf28bbb1915a424584b33b711babee.ttf") format("truetype"),
+       url("https://db.onlinewebfonts.com/t/cddf28bbb1915a424584b33b711babee.svg#Golden Story") format("svg");
+  font-weight: bold;
+  font-display: swap; /* Improves loading performance */
+}
+
+/* Global Image Constraints - Apply to all images with preview functionality */
+.modal-image,
+.gallery-image,
+img[data-preview="true"],
+.preview-image {
+  /* Global maximum dimensions for all preview images */
+  max-width: min(800px, 100vw) !important;
+  max-height: min(500px, 100vh) !important;
+  /* Ensure proper scaling and aspect ratio */
+  object-fit: contain;
+  width: auto;
+  height: auto;
+  /* Prevent overflow */
+  box-sizing: border-box;
+}
+
+/* Specific constraint for modal images */
+.modal-image {
+  /* Ensure modal images never exceed screen or global limits */
+  max-width: min(800px, calc(100vw - 80px)) !important;
+  max-height: min(500px, calc(100vh - 160px)) !important;
+}
+
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0; /* Remove padding since hero section handles spacing */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Ensure smooth transitions globally */
+* {
+  box-sizing: border-box;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* You can add global styles to this file, and also import other style files */
