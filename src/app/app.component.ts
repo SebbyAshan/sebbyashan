@@ -99,37 +99,37 @@ export class AppComponent implements OnInit, OnDestroy {
    */
   galleryImages = [
     {
-      src: 'Image/Anya.png',
+      src: 'https://i.imgur.com/MvRaMey.png',
       alt: 'Anya character artwork',
       title: 'Anya',
       description: 'Art of Anya from the game "Mouth Washing"'
     },
     {
-      src: 'Image/BGFB2.png',
+      src: 'https://i.imgur.com/0j5O9iT.jpeg',
       alt: 'Background design 2',
       title: 'City Rain Walk',
       description: 'An Adventure into the imagination while walking in the city'
     },
     {
-      src: 'Image/HideAndSeek2.png',
+      src: 'https://i.imgur.com/94v5yrA.jpeg',
       alt: 'Hide and Seek game artwork',
       title: 'Hide and Seek',
       description: 'Playful story of playing Hide and Seek with Ghosts'
     },
     {
-      src: 'Image/IziaFanart.png',
+      src: 'https://i.imgur.com/gH0vtZa.jpeg',
       alt: 'Izia fan art illustration',
       title: 'Izia Fan Art',
       description: 'Creative fan artwork for Iziarawr'
     },
     {
-      src: 'Image/SpoopyStore.png',
+      src: 'https://i.imgur.com/ogEXD4E.jpeg',
       alt: 'Spooky store design',
       title: 'Spooky Store',
       description: 'Ghost Kid Shopping in the Store for Holloween'
     },
     {
-      src: 'Image/ToshBG-1.png',
+      src: 'https://i.imgur.com/hQiiAwD.jpeg',
       alt: 'Tosh background design',
       title: 'Tosh Background',
       description: 'Background Art with ghost pets for Tosho'
