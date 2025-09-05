@@ -147,21 +147,21 @@ export class AppComponent implements OnInit, OnDestroy {
       id: 'stickers',
       title: 'Stickers',
       description: 'Custom stickers and emoji designs for Discord/Twitch/Other platforms',
-      image: '/PanelImages/StickerPanel.png',
+      image: 'https://i.imgur.com/swdJQ68.jpeg',
       alt: 'Sticker design panel'
     },
     {
       id: 'game-assets',
       title: 'Game Assets',
       description: 'Tier designs, profile frames, and game artwork',
-      image: '/PanelImages/GameAssets.png',
+      image: 'https://i.imgur.com/RYOKR90.jpeg',
       alt: 'Game assets panel'
     },
     {
       id: 'websites',
       title: 'Websites',
       description: 'Web designs',
-      image: '/PanelImages/WebsitePanel.png',
+      image: 'https://i.imgur.com/4ooZWw0.jpeg',
       alt: 'Website design panel'
     }
   ];
