@@ -99,37 +99,37 @@ export class AppComponent implements OnInit, OnDestroy {
    */
   galleryImages = [
     {
-      src: 'https://i.imgur.com/MvRaMey.png',
+      src: 'https://i.imgur.com/Wn3gPoG.jpeg',
       alt: 'Anya character artwork',
       title: 'Anya',
       description: 'Art of Anya from the game "Mouth Washing"'
     },
     {
-      src: 'https://i.imgur.com/0j5O9iT.jpeg',
+      src: 'https://i.imgur.com/5IwYmG3.jpeg',
       alt: 'Background design 2',
       title: 'City Rain Walk',
       description: 'An Adventure into the imagination while walking in the city'
     },
     {
-      src: 'https://i.imgur.com/94v5yrA.jpeg',
+      src: 'https://i.imgur.com/uCu9MKo.jpeg',
       alt: 'Hide and Seek game artwork',
       title: 'Hide and Seek',
       description: 'Playful story of playing Hide and Seek with Ghosts'
     },
     {
-      src: 'https://i.imgur.com/gH0vtZa.jpeg',
+      src: 'https://i.imgur.com/fg0N4G4.jpeg',
       alt: 'Izia fan art illustration',
       title: 'Izia Fan Art',
       description: 'Creative fan artwork for Iziarawr'
     },
     {
-      src: 'https://i.imgur.com/ogEXD4E.jpeg',
+      src: 'https://i.imgur.com/PuaMa8M.jpeg',
       alt: 'Spooky store design',
       title: 'Spooky Store',
       description: 'Ghost Kid Shopping in the Store for Holloween'
     },
     {
-      src: 'https://i.imgur.com/hQiiAwD.jpeg',
+      src: 'https://i.imgur.com/W2OOusD.jpeg',
       alt: 'Tosh background design',
       title: 'Tosh Background',
       description: 'Background Art with ghost pets for Tosho'
